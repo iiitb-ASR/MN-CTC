@@ -1,5 +1,11 @@
 # Matching Network (MN) implementation for Continous Speech Recogniton 
 
+In this work, we adapt th FSL paradigm *Matching Networks* (MN) to the problem of Continuous Speech Recognition.MN is a model-based FSL technique, where the embedded function is learned by prior knowledge. Matching networks carries out FSL during inference by using a small set of K samples (examples/class) to classify a test sample within a posterior estimation method based on kernel-density estimation (KDE) and k-nearest neighbor (KNN) based classification.
+
+We adapt MN framework to continuous speech recognition (CSR) by using CTC loss function.
+
+![Adaption of MN to CSR](Adaption_of_MN_to_CSR.png)
+
 ## Steps to run MN experiment for TIMIT speech corpus 
 
 #### Prerequistes:
@@ -40,3 +46,14 @@ MN input data is of 2 types :
     format - {utt_id : {'feats': [39-dim MFCC] , 'labels': [ground-truth - sequence of phn indices]}}  
 
 
+### 3. MN-CTC training in pytorch
+
+We carry out to end-to-end MN training using CTC loss function. The network consists of 2 encoders 'g' and 'f' to embed the support-set samples and batch utterance.
+
+MN consists of two encoders g and f to embed the support samples and batch utterance.
+1. encoder 'g' - to embed support set frames - fed as an spectrographic patch (39x11) to a 3-layer CNN
+2. encoder 'f' - uses bi-LSTM to map utterances to 256 dimension space.
+
+t-sne plot of support-samples after embedding:
+
+![Support set samples before and after embedding](t-sne_SS_plot.png)
