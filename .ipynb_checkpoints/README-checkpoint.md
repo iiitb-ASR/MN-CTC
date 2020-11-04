@@ -4,7 +4,7 @@ In this work, we adapt th FSL paradigm *Matching Networks* (MN) to the problem o
 
 We adapt MN framework to continuous speech recognition (CSR) by using CTC loss function.
 
-![Adaption of MN to CSR](Adaption_of_MN_to_CSR.png)
+![Adaption of MN to CSR](images/Adaption_of_MN_to_CSR.png)
 
 ## Steps to run MN experiment for TIMIT speech corpus 
 
@@ -56,4 +56,4 @@ MN consists of two encoders g and f to embed the support samples and batch utter
 
 t-sne plot of support-samples after embedding:
 
-![Support set samples before and after embedding](t-sne_SS_plot.png)
+![Support set samples before and after embedding](images/t-sne_SS_plot.png)
